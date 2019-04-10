@@ -17,7 +17,7 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      <h2>Fetching star wars characters</h2>
+      return <h2>Fetching star wars characters</h2>;
     }
     return (
       <div className="CharactersList_wrapper">
@@ -26,7 +26,7 @@ class CharacterListView extends React.Component {
     );
   }
 }
-  // our mapStateToProps needs to have two properties inherited from state
+// our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean
 const mapStateToProps = state => {
   //console.log(state);
@@ -38,6 +38,6 @@ const mapStateToProps = state => {
 };
 
 export default connect(
-  mapStateToProps, /* mapStateToProps replaces null here */
-  { getCharacters /* action creators go here */}
+  mapStateToProps /* mapStateToProps replaces null here */,
+  { getCharacters /* action creators go here */ }
 )(CharacterListView);
