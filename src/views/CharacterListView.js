@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 
 import { CharacterList } from "../components";
 // import actions
@@ -17,11 +18,18 @@ class CharacterListView extends React.Component {
   render() {
     if (this.props.fetching) {
       // return something here to indicate that you are fetching data
-      return <h2>Fetching star wars characters</h2>;
+      return (
+        <div>
+          <h2>Fetching star wars characters</h2>
+          {this.props.fetching && (
+            <Loader type="ThreeDots" color="#35A7FF" height={100} width={100} />
+          )}
+        </div>
+      );
     }
     return (
       <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />;
+        <CharacterList characters={this.props.characters} />
       </div>
     );
   }
